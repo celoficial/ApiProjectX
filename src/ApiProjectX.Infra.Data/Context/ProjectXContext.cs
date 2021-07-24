@@ -14,6 +14,7 @@ namespace ApiProjectX.Infra.Data.Context
         //definir dbSet
         public DbSet<AnimeEntity> Anime { get; set; }
         public DbSet<StudioEntity> Studio { get; set; }
+        public DbSet<CategoryEntity> Category { get; set;}
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -25,6 +26,7 @@ namespace ApiProjectX.Infra.Data.Context
 
             modelBuilder.Entity<AnimeEntity>(new AnimeEntityConfiguration().Configure);
             modelBuilder.Entity<StudioEntity>(new StudioEntityConfiguration().Configure);
+            modelBuilder.Entity<CategoryEntity>(new CategoryEntityConfiguration().Configure);
 
         }
     }
