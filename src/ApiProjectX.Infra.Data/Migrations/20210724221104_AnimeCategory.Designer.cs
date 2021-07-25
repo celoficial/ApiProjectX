@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ApiProjectX.Infra.Data.Migrations
 {
     [DbContext(typeof(ProjectXContext))]
-    [Migration("20210724163152_Category")]
-    partial class Category
+    [Migration("20210724221104_AnimeCategory")]
+    partial class AnimeCategory
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,30 @@ namespace ApiProjectX.Infra.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.8")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("ApiProjectX.Domain.Entities.AnimeCategoryEntity", b =>
+                {
+                    b.Property<Guid>("AnimeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CategoryId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("AnimeId", "CategoryId");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("AnimeCategory");
+                });
 
             modelBuilder.Entity("ApiProjectX.Domain.Entities.AnimeEntity", b =>
                 {
@@ -94,6 +118,35 @@ namespace ApiProjectX.Infra.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Studio");
+                });
+
+            modelBuilder.Entity("ApiProjectX.Domain.Entities.AnimeCategoryEntity", b =>
+                {
+                    b.HasOne("ApiProjectX.Domain.Entities.AnimeEntity", "Anime")
+                        .WithMany("AnimeCategory")
+                        .HasForeignKey("AnimeId")
+                        .OnDelete(DeleteBehavior.SetNull)
+                        .IsRequired();
+
+                    b.HasOne("ApiProjectX.Domain.Entities.CategoryEntity", "Category")
+                        .WithMany("AnimeCategories")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.SetNull)
+                        .IsRequired();
+
+                    b.Navigation("Anime");
+
+                    b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("ApiProjectX.Domain.Entities.AnimeEntity", b =>
+                {
+                    b.Navigation("AnimeCategory");
+                });
+
+            modelBuilder.Entity("ApiProjectX.Domain.Entities.CategoryEntity", b =>
+                {
+                    b.Navigation("AnimeCategories");
                 });
 #pragma warning restore 612, 618
         }

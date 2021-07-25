@@ -9,6 +9,6 @@ namespace ApiProjectX.Domain.Entities
     public class CategoryEntity : BaseEntity
     {
         public string CategoryName { get; set; }
-
+        public ICollection<AnimeCategoryEntity> AnimeCategories { get; set; }
     }
 }

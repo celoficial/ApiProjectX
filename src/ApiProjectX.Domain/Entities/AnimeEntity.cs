@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ApiProjectX.Domain.Entities
 {
@@ -8,6 +9,9 @@ namespace ApiProjectX.Domain.Entities
         public string Description { get; set; }
         public double? Rating { get; set; }
         public string ImgUrl { get; set; }
+
+        public ICollection<AnimeCategoryEntity> AnimeCategory { get; set; }
+        public ICollection<AnimeAuthorEntity> AnimeAuthor { get; set; }
 
       //  public Guid StudioId { get; set; }
        // public StudioEntity Studio { get; set; }
