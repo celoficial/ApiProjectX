@@ -13,7 +13,7 @@ namespace ApiProjectX.Infra.Data.EntityConfiguration
     {
         public void Configure(EntityTypeBuilder<AnimeCategoryEntity> builder)
         {
-            builder.HasKey(c => new { c.AnimeId, c.CategoryId });
+            builder.HasKey(c => c.Id);
         }
     }
 }
