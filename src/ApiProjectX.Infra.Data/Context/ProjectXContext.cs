@@ -28,10 +28,12 @@ namespace ApiProjectX.Infra.Data.Context
 
             modelBuilder.Entity<AnimeEntity>(new AnimeEntityConfiguration().Configure);
             modelBuilder.Entity<StudioEntity>(new StudioEntityConfiguration().Configure);
+            modelBuilder.Entity<StudioAnimeEntity>(new StudioAnimeEntityConfiguration().Configure);
             modelBuilder.Entity<CategoryEntity>(new CategoryEntityConfiguration().Configure);
             modelBuilder.Entity<AnimeCategoryEntity>(new AnimeCategoryEntityConfiguration().Configure);
             modelBuilder.Entity<AuthorEntity>(new AuthorEntityConfiguration().Configure);
             modelBuilder.Entity<AnimeAuthorEntity>(new AnimeAuthorEntityConfiguration().Configure);
+
 
         }
     }
