@@ -7,16 +7,18 @@ namespace ApiProjectX.Infra.Data.Context
 {
     public class ProjectXContext : DbContext
     {
-        public ProjectXContext(DbContextOptions<ProjectXContext> options): base(options){}
+        public ProjectXContext(DbContextOptions<ProjectXContext> options) : base(options) { }
 
-        public ProjectXContext(){}
+        public ProjectXContext() { }
 
         public DbSet<AnimeEntity> Anime { get; set; }
         public DbSet<StudioEntity> Studio { get; set; }
-        public DbSet<CategoryEntity> Category { get; set;}
+        public DbSet<CategoryEntity> Category { get; set; }
         public DbSet<AnimeCategoryEntity> AnimeCategory { get; set; }
         public DbSet<AuthorEntity> Author { get; set; }
         public DbSet<AnimeAuthorEntity> AnimeAuthor { get; set; }
+
+        public DbSet<AcessTypeEntity> AcessType { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -33,6 +35,11 @@ namespace ApiProjectX.Infra.Data.Context
             modelBuilder.Entity<AnimeCategoryEntity>(new AnimeCategoryEntityConfiguration().Configure);
             modelBuilder.Entity<AuthorEntity>(new AuthorEntityConfiguration().Configure);
             modelBuilder.Entity<AnimeAuthorEntity>(new AnimeAuthorEntityConfiguration().Configure);
+            modelBuilder.Entity<AcessTypeEntity>(new AcessTypeEntityConfiguration().Configure);
+            modelBuilder.Entity<UserEntity>(new UserEntityConfiguration().Configure);
+
+
+
 
 
         }

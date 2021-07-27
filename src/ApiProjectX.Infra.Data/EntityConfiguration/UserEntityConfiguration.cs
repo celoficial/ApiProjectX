@@ -21,6 +21,10 @@ namespace ApiProjectX.Infra.Data.EntityConfiguration
             builder.Property(c => c.UserBirth).HasMaxLength(8).IsRequired();
             builder.Property(c => c.UserNick).HasMaxLength(20).IsRequired();
             builder.Property(c => c.UserPassword).HasMaxLength(20).IsRequired();
+            builder.HasIndex(c => c.UserNick).IsUnique();
+            builder.HasIndex(c => c.UserEmail).IsUnique();
+          
+             
         }
     }
 }

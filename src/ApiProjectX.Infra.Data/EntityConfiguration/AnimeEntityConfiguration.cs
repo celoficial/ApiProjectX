@@ -14,11 +14,8 @@ namespace ApiProjectX.Infra.Data.EntityConfiguration
             builder.Property(c => c.Rating)
                 .IsRequired(false)
                 .HasMaxLength(5);// alterar depois
-   
+
             builder.Property(c => c.ImgUrl).IsRequired(false);
-           // builder.HasOne(c => c.Studio);
-
-
 
         }
     }

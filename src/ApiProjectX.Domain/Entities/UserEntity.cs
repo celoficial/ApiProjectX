@@ -19,7 +19,9 @@ namespace ApiProjectX.Domain.Entities
 
         public string UserBirth { get; set; }
 
-        
+        public AcessTypeEntity AcessType { get; set; }
+        public Guid AcessTypeId { get; set; }
+
 
     }
 }
