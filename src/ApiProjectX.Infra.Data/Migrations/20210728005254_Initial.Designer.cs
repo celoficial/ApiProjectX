@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ApiProjectX.Infra.Data.Migrations
 {
     [DbContext(typeof(ProjectXContext))]
-    [Migration("20210727172054_UpdateKey")]
-    partial class UpdateKey
+    [Migration("20210728005254_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,16 +21,37 @@ namespace ApiProjectX.Infra.Data.Migrations
                 .HasAnnotation("ProductVersion", "5.0.8")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("ApiProjectX.Domain.Entities.AcessTypeEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AcessType");
+                });
+
             modelBuilder.Entity("ApiProjectX.Domain.Entities.AnimeAuthorEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("AnimeId")
+                    b.Property<Guid?>("AnimeId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("AuthorId")
+                    b.Property<Guid?>("AuthorId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
@@ -54,10 +75,10 @@ namespace ApiProjectX.Infra.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("AnimeId")
+                    b.Property<Guid?>("AnimeId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("CategoryId")
+                    b.Property<Guid?>("CategoryId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
@@ -151,6 +172,33 @@ namespace ApiProjectX.Infra.Data.Migrations
                     b.ToTable("Category");
                 });
 
+            modelBuilder.Entity("ApiProjectX.Domain.Entities.StudioAnimeEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("AnimeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("StudioId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AnimeId");
+
+                    b.HasIndex("StudioId");
+
+                    b.ToTable("StudioAnimeEntity");
+                });
+
             modelBuilder.Entity("ApiProjectX.Domain.Entities.StudioEntity", b =>
                 {
                     b.Property<Guid>("Id")
@@ -172,19 +220,70 @@ namespace ApiProjectX.Infra.Data.Migrations
                     b.ToTable("Studio");
                 });
 
+            modelBuilder.Entity("ApiProjectX.Domain.Entities.UserEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("AcessTypeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserBirth")
+                        .IsRequired()
+                        .HasMaxLength(8)
+                        .HasColumnType("nvarchar(8)");
+
+                    b.Property<string>("UserEmail")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("UserNick")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("UserPassword")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AcessTypeId");
+
+                    b.HasIndex("UserEmail")
+                        .IsUnique();
+
+                    b.HasIndex("UserNick")
+                        .IsUnique();
+
+                    b.ToTable("UserEntity");
+                });
+
             modelBuilder.Entity("ApiProjectX.Domain.Entities.AnimeAuthorEntity", b =>
                 {
                     b.HasOne("ApiProjectX.Domain.Entities.AnimeEntity", "Anime")
                         .WithMany("AnimeAuthor")
                         .HasForeignKey("AnimeId")
-                        .OnDelete(DeleteBehavior.SetNull)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.HasOne("ApiProjectX.Domain.Entities.AuthorEntity", "Author")
                         .WithMany("AnimeAuthor")
                         .HasForeignKey("AuthorId")
-                        .OnDelete(DeleteBehavior.SetNull)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("Anime");
 
@@ -196,18 +295,40 @@ namespace ApiProjectX.Infra.Data.Migrations
                     b.HasOne("ApiProjectX.Domain.Entities.AnimeEntity", "Anime")
                         .WithMany("AnimeCategory")
                         .HasForeignKey("AnimeId")
-                        .OnDelete(DeleteBehavior.SetNull)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.HasOne("ApiProjectX.Domain.Entities.CategoryEntity", "Category")
                         .WithMany("AnimeCategories")
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.SetNull)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("Anime");
 
                     b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("ApiProjectX.Domain.Entities.StudioAnimeEntity", b =>
+                {
+                    b.HasOne("ApiProjectX.Domain.Entities.AnimeEntity", "Anime")
+                        .WithMany()
+                        .HasForeignKey("AnimeId");
+
+                    b.HasOne("ApiProjectX.Domain.Entities.StudioEntity", "Studio")
+                        .WithMany()
+                        .HasForeignKey("StudioId");
+
+                    b.Navigation("Anime");
+
+                    b.Navigation("Studio");
+                });
+
+            modelBuilder.Entity("ApiProjectX.Domain.Entities.UserEntity", b =>
+                {
+                    b.HasOne("ApiProjectX.Domain.Entities.AcessTypeEntity", "AcessType")
+                        .WithMany()
+                        .HasForeignKey("AcessTypeId");
+
+                    b.Navigation("AcessType");
                 });
 
             modelBuilder.Entity("ApiProjectX.Domain.Entities.AnimeEntity", b =>

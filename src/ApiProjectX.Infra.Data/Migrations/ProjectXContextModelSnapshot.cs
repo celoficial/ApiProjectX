@@ -46,10 +46,10 @@ namespace ApiProjectX.Infra.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("AnimeId")
+                    b.Property<Guid?>("AnimeId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("AuthorId")
+                    b.Property<Guid?>("AuthorId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
@@ -73,10 +73,10 @@ namespace ApiProjectX.Infra.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("AnimeId")
+                    b.Property<Guid?>("AnimeId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("CategoryId")
+                    b.Property<Guid?>("CategoryId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
@@ -176,13 +176,13 @@ namespace ApiProjectX.Infra.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("AnimeId")
+                    b.Property<Guid?>("AnimeId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("StudioId")
+                    b.Property<Guid?>("StudioId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("UpdatedAt")
@@ -224,7 +224,7 @@ namespace ApiProjectX.Infra.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("AcessTypeId")
+                    b.Property<Guid?>("AcessTypeId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
@@ -276,14 +276,12 @@ namespace ApiProjectX.Infra.Data.Migrations
                     b.HasOne("ApiProjectX.Domain.Entities.AnimeEntity", "Anime")
                         .WithMany("AnimeAuthor")
                         .HasForeignKey("AnimeId")
-                        .OnDelete(DeleteBehavior.SetNull)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.HasOne("ApiProjectX.Domain.Entities.AuthorEntity", "Author")
                         .WithMany("AnimeAuthor")
                         .HasForeignKey("AuthorId")
-                        .OnDelete(DeleteBehavior.SetNull)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("Anime");
 
@@ -295,14 +293,12 @@ namespace ApiProjectX.Infra.Data.Migrations
                     b.HasOne("ApiProjectX.Domain.Entities.AnimeEntity", "Anime")
                         .WithMany("AnimeCategory")
                         .HasForeignKey("AnimeId")
-                        .OnDelete(DeleteBehavior.SetNull)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.HasOne("ApiProjectX.Domain.Entities.CategoryEntity", "Category")
                         .WithMany("AnimeCategories")
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.SetNull)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("Anime");
 
@@ -313,15 +309,11 @@ namespace ApiProjectX.Infra.Data.Migrations
                 {
                     b.HasOne("ApiProjectX.Domain.Entities.AnimeEntity", "Anime")
                         .WithMany()
-                        .HasForeignKey("AnimeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("AnimeId");
 
                     b.HasOne("ApiProjectX.Domain.Entities.StudioEntity", "Studio")
                         .WithMany()
-                        .HasForeignKey("StudioId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("StudioId");
 
                     b.Navigation("Anime");
 
@@ -332,9 +324,7 @@ namespace ApiProjectX.Infra.Data.Migrations
                 {
                     b.HasOne("ApiProjectX.Domain.Entities.AcessTypeEntity", "AcessType")
                         .WithMany()
-                        .HasForeignKey("AcessTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("AcessTypeId");
 
                     b.Navigation("AcessType");
                 });

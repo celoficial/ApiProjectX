@@ -8,10 +8,10 @@ namespace ApiProjectX.Domain.Entities
 {
     public class AnimeCategoryEntity : BaseEntity
     {
-        public Guid CategoryId { get; set; }
+        public Guid? CategoryId { get; set; }
         public CategoryEntity Category { get; set; }
 
-        public Guid AnimeId { get; set; }
+        public Guid? AnimeId { get; set; }
         public AnimeEntity Anime { get; set; }
 
     }

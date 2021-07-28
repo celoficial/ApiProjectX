@@ -1,11 +1,6 @@
 ﻿using ApiProjectX.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ApiProjectX.Infra.Data.EntityConfiguration
 {
@@ -21,6 +16,7 @@ namespace ApiProjectX.Infra.Data.EntityConfiguration
             builder.Property(c => c.UserBirth).HasMaxLength(8).IsRequired();
             builder.Property(c => c.UserNick).HasMaxLength(20).IsRequired();
             builder.Property(c => c.UserPassword).HasMaxLength(20).IsRequired();
+            builder.Property(c => c.AcessTypeId).IsRequired(false);
             builder.HasIndex(c => c.UserNick).IsUnique();
             builder.HasIndex(c => c.UserEmail).IsUnique();
           

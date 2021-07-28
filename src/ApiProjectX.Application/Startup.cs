@@ -50,6 +50,8 @@ namespace ApiProjectX.Application
                 });
             }
 
+            app.InitializeDatabase();
+
             app.UseHttpsRedirection();
 
             app.UseRouting();

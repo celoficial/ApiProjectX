@@ -15,7 +15,7 @@ namespace ApiProjectX.Application.Configuration
             switch (env.EnvironmentName)
             {
                 case "Local":
-                    services.AddDbContext<ProjectXContext>(opts => opts.UseSqlServer(config["ConnectionStrings:DefaultConnection"]), ServiceLifetime.Transient);
+                    services.AddDbContext<ProjectXContext>(opts => opts.UseSqlServer(config["ConnectionStrings:DefaultConnection"]));
                     break;
                 case "Development":
                     services.AddDbContext<ProjectXContext>(opts => opts.UseSqlServer(config["ConnectionStrings:DefaultConnection"]), ServiceLifetime.Transient);

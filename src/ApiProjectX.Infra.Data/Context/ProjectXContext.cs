@@ -37,11 +37,6 @@ namespace ApiProjectX.Infra.Data.Context
             modelBuilder.Entity<AnimeAuthorEntity>(new AnimeAuthorEntityConfiguration().Configure);
             modelBuilder.Entity<AcessTypeEntity>(new AcessTypeEntityConfiguration().Configure);
             modelBuilder.Entity<UserEntity>(new UserEntityConfiguration().Configure);
-
-
-
-
-
         }
     }
 }

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ApiProjectX.Domain.Entities
 {
@@ -19,8 +15,9 @@ namespace ApiProjectX.Domain.Entities
 
         public string UserBirth { get; set; }
 
+        public Guid? AcessTypeId { get; set; }
         public AcessTypeEntity AcessType { get; set; }
-        public Guid AcessTypeId { get; set; }
+        
 
 
     }
