@@ -17,9 +17,12 @@ namespace ApiProjectX.Infra.Data.Context
         public DbSet<AnimeCategoryEntity> AnimeCategory { get; set; }
         public DbSet<AuthorEntity> Author { get; set; }
         public DbSet<AnimeAuthorEntity> AnimeAuthor { get; set; }
-
+        public DbSet<EpisodeEntity> Episode { get; set; }
+        public DbSet<SeasonEntity> Season { get; set; }
+        public DbSet<WatchingEntity> Watching { get; set; }
+        public DbSet<WatchLaterEntity> WatchLater { get; set; }
         public DbSet<AcessTypeEntity> AcessType { get; set; }
-
+        public DbSet<UserEntity> User { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -30,6 +33,10 @@ namespace ApiProjectX.Infra.Data.Context
 
             modelBuilder.Entity<AnimeEntity>(new AnimeEntityConfiguration().Configure);
             modelBuilder.Entity<StudioEntity>(new StudioEntityConfiguration().Configure);
+            modelBuilder.Entity<EpisodeEntity>(new EpisodeEntityConfiguration().Configure);
+            modelBuilder.Entity<SeasonEntity>(new SeasonEntityConfiguration().Configure);
+            modelBuilder.Entity<WatchingEntity>(new WatchingEntityConfiguration().Configure);
+            modelBuilder.Entity<WatchLaterEntity>(new WatchLaterEntityConfiguration().Configure);
             modelBuilder.Entity<StudioAnimeEntity>(new StudioAnimeEntityConfiguration().Configure);
             modelBuilder.Entity<CategoryEntity>(new CategoryEntityConfiguration().Configure);
             modelBuilder.Entity<AnimeCategoryEntity>(new AnimeCategoryEntityConfiguration().Configure);
