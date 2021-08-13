@@ -7,12 +7,12 @@ namespace ApiProjectX.Domain.Interfaces.Services
     public interface IBaseService<T>
     {
         Task<T> Create(T entity);
-        Task<T> CreateMany(IEnumerable<T> entities);
-        Task Delete(Guid Id);
+        Task CreateMany(IEnumerable<T> entities);
+        Task<Task> Delete(Guid id);
         Task DeleteMany(IEnumerable<T> entities);
         Task<bool> Exists(Guid id);
-        Task<List<T>> FindById(Guid id);
-        Task Save();
-        Task<T> Update(Guid id, T entity);
+        Task<T> FindById(Guid id);
+        Task<Task> Save();
+        Task<Task> Update(T entity);
     }
 }

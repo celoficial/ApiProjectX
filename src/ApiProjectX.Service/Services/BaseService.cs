@@ -1,4 +1,6 @@
-﻿using ApiProjectX.Domain.Interfaces.Services;
+﻿using ApiProjectX.Domain.Interfaces.Repository;
+using ApiProjectX.Domain.Interfaces.Services;
+using ApiProjectX.Service.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -7,24 +9,35 @@ namespace ApiProjectX.Service.Services
 {
     public abstract class BaseService<T> : IBaseService<T>
     {
-        public BaseService()
+        private readonly IBaseRepository<T> _baseRepository;
+        public BaseService(IBaseRepository<T> baseRepository)
         {
-
+            _baseRepository = baseRepository;
         }
 
-        public Task<T> Create(T entity)
+        public async Task<T> Create(T entity)
         {
-            throw new NotImplementedException();
+            var create = await _baseRepository.Create(entity);
+            return create;
         }
 
-        public Task<T> CreateMany(IEnumerable<T> entities)
+        public async Task CreateMany(IEnumerable<T> entities)
         {
-            throw new NotImplementedException();
+            await _baseRepository.CreateMany(entities);
         }
 
-        public Task Delete(Guid Id)
+        public async Task<Task> Delete(Guid id)
         {
-            throw new NotImplementedException();
+            var entity = await _baseRepository.FindById(id);
+            try
+            {
+                _baseRepository.Delete(entity);
+                return Task.CompletedTask;
+            }
+            catch (GeneralException e)
+            {
+                return Task.FromException(e);
+            }
         }
 
         public Task DeleteMany(IEnumerable<T> entities)
@@ -32,24 +45,42 @@ namespace ApiProjectX.Service.Services
             throw new NotImplementedException();
         }
 
-        public Task<bool> Exists(Guid id)
+        public async Task<bool> Exists(Guid id)
         {
-            throw new NotImplementedException();
+            var entity = await _baseRepository.Exists(id);
+            return entity;
         }
 
-        public Task<List<T>> FindById(Guid id)
+        public async Task<T> FindById(Guid id)
         {
-            throw new NotImplementedException();
+            var entity = await _baseRepository.FindById(id);
+            return entity;
         }
 
-        public Task Save()
+        public async Task<Task> Save()
         {
-            throw new NotImplementedException();
+            try
+            {
+                await _baseRepository.Save();
+                return Task.CompletedTask;
+            }
+            catch (GeneralException e)
+            {
+                return Task.FromException(e);
+            }
         }
 
-        public Task<T> Update(Guid id, T entity)
+        public async Task<Task> Update(T entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                await _baseRepository.Update(entity);
+                return Task.CompletedTask;
+            }
+            catch (GeneralException e)
+            {
+                return Task.FromException(e);
+            }
         }
     }
 }
