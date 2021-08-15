@@ -29,6 +29,8 @@ namespace ApiProjectX.Application
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ApiProjectX.Application", Version = "v1" });
             });
             services.ConfigureDataBase(Configuration,Environment);
+            services.ConfigureServices(Configuration);
+            services.ConfigureWrapper(Configuration);
             services.ConfigureSwagger();
         }
 
