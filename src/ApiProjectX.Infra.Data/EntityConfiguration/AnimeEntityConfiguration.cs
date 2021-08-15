@@ -16,6 +16,7 @@ namespace ApiProjectX.Infra.Data.EntityConfiguration
                 .HasMaxLength(5);// alterar depois
 
             builder.Property(c => c.ImgUrl).IsRequired(false);
+            builder.Property(c => c.Tags).HasMaxLength(255);
 
         }
     }

@@ -8,6 +8,7 @@ namespace ApiProjectX.Domain.Entities
         public string Description { get; set; }
         public double? Rating { get; set; }
         public string ImgUrl { get; set; }
+        public string Tags { get; set; }
 
         public ICollection<AnimeCategoryEntity> AnimeCategory { get; set; }
         public ICollection<AnimeAuthorEntity> AnimeAuthor { get; set; }
