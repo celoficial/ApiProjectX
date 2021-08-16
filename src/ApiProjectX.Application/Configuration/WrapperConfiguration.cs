@@ -9,6 +9,7 @@ namespace ApiProjectX.Application.Configuration
     {
         public static void ConfigureWrapper(this IServiceCollection services, IConfiguration config)
         {
+            services.AddTransient(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             services.AddTransient<IRepositoryWrapper, RepositoryWrapper>();
         }
     }

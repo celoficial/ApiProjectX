@@ -11,7 +11,7 @@ namespace ApiProjectX.Application.Configuration
         {
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v2", new OpenApiInfo
+                c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
                     Title = " Api - Project X",

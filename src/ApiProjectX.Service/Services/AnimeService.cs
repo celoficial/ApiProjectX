@@ -9,16 +9,11 @@ namespace ApiProjectX.Service.Services
     public class AnimeService : BaseService<AnimeEntity>, IAnimeService
     {
         private readonly IRepositoryWrapper _repository;
-
-        public AnimeService(IRepositoryWrapper repository)
+        private readonly IBaseRepository<AnimeEntity> _baseRepository;
+        public AnimeService(IRepositoryWrapper repository, IBaseRepository<AnimeEntity> baseRepository):base(baseRepository)
         {
+            _baseRepository = baseRepository;
             _repository = repository;
-        }
-
-        public Task<IEnumerable<AnimeEntity>> GetAll()
-        {
-            var result = _repository.Anime.FindAll();
-            return result;
         }
     }
 }

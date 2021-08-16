@@ -6,6 +6,5 @@ namespace ApiProjectX.Domain.Interfaces.Services
 {
     public interface IAnimeService : IBaseService<AnimeEntity>
     {
-        Task<IEnumerable<AnimeEntity>> GetAll();
     }
 }
