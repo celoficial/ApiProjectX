@@ -3,5 +3,6 @@
     public interface IRepositoryWrapper
     {
         IAnimeRepository Anime { get; }
+        IAuthorRepository Author { get; }
     }
 }

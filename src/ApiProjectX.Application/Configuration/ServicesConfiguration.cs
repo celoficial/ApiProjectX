@@ -10,6 +10,7 @@ namespace ApiProjectX.Application.Configuration
         public static void ConfigureServices(this IServiceCollection services, IConfiguration config)
         {
             services.AddTransient<IAnimeService, AnimeService>();
+            services.AddTransient<IAuthorService, AuthorService>();
         }
     }
 }
