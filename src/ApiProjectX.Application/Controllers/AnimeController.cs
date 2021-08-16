@@ -20,8 +20,8 @@ namespace ApiProjectX.Application.Controllers
         [HttpGet]
         public async Task<ActionResult> Get()
         {
-       //     var result = await _animeservice.GetAll();
-            return Ok();
+            var result = await _animeservice.GetAll();
+            return Ok(result);
         }
 
         [HttpPost]
