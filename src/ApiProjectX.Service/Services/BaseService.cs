@@ -57,6 +57,12 @@ namespace ApiProjectX.Service.Services
             return entity;
         }
 
+        public async Task<IEnumerable<T>> GetAll()
+        {
+            var entities = await _baseRepository.FindAll();
+            return entities;
+        }
+
         public async Task<Task> Save()
         {
             try
@@ -82,5 +88,6 @@ namespace ApiProjectX.Service.Services
                 return Task.FromException(e);
             }
         }
+        
     }
 }

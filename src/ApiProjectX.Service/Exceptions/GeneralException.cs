@@ -8,7 +8,7 @@ namespace ApiProjectX.Service.Exceptions
 {
     class GeneralException : Exception
     {
-        public GeneralException():base("Deu ruim")
+        public GeneralException() : base("Deu ruim")
         {
         }
     }

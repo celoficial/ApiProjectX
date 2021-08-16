@@ -22,8 +22,6 @@ namespace ApiProjectX.Application
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
-            services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ApiProjectX.Application", Version = "v1" });
@@ -32,6 +30,7 @@ namespace ApiProjectX.Application
             services.ConfigureServices(Configuration);
             services.ConfigureWrapper(Configuration);
             services.ConfigureSwagger();
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

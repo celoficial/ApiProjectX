@@ -12,6 +12,7 @@ namespace ApiProjectX.Domain.Interfaces.Services
         Task DeleteMany(IEnumerable<T> entities);
         Task<bool> Exists(Guid id);
         Task<T> FindById(Guid id);
+        Task<IEnumerable<T>> GetAll();
         Task<Task> Save();
         Task<Task> Update(T entity);
     }
