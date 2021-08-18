@@ -9,6 +9,7 @@ namespace ApiProjectX.Infra.Data.Repository
         private IAnimeRepository _anime;
         private IAuthorRepository _author;
         private IUserRepository _user;
+        private ISeasonRepository _season;
 
         public RepositoryWrapper(ProjectXContext dbContext)
         {
@@ -49,6 +50,18 @@ namespace ApiProjectX.Infra.Data.Repository
                     _user = new UserRepository(_dbContext);
                 }
                 return _user;
+            }
+        }
+
+        public ISeasonRepository Season
+        {
+            get
+            {
+                if(_season == null)
+                {
+                    _season = new SeasonRepository(_dbContext);
+                }
+                return _season;
             }
         }
     }
