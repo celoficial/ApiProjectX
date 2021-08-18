@@ -4,11 +4,11 @@ using ApiProjectX.Infra.Data.Context;
 
 namespace ApiProjectX.Infra.Data.Repository
 {
-    public class AnimeRepository : BaseRepository<AnimeEntity>, IAnimeRepository
+    public class StudioRepository : BaseRepository<StudioEntity>, IStudioRepository
     {
-        public AnimeRepository(ProjectXContext dbContext) : base(dbContext)
+        public StudioRepository(ProjectXContext dbContext) : base(dbContext)
         {
-            
+
         }
     }
 }

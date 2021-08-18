@@ -12,6 +12,7 @@ namespace ApiProjectX.Application.Configuration
             services.AddTransient<IAnimeService, AnimeService>();
             services.AddTransient<IAuthorService, AuthorService>();
             services.AddTransient<ISeasonService, SeasonService>();
+            services.AddTransient<IStudioService, StudioService>();
         }
     }
 }

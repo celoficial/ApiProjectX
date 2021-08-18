@@ -10,6 +10,7 @@ namespace ApiProjectX.Infra.Data.Repository
         private IAuthorRepository _author;
         private IUserRepository _user;
         private ISeasonRepository _season;
+        private IStudioRepository _studio;
 
         public RepositoryWrapper(ProjectXContext dbContext)
         {
@@ -62,6 +63,18 @@ namespace ApiProjectX.Infra.Data.Repository
                     _season = new SeasonRepository(_dbContext);
                 }
                 return _season;
+            }
+        }
+
+        public IStudioRepository Studio
+        {
+            get
+            {
+                if (_studio == null)
+                {
+                    _studio = new StudioRepository(_dbContext);
+                }
+                return _studio;
             }
         }
     }
