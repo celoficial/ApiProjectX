@@ -4,5 +4,6 @@
     {
         IAnimeRepository Anime { get; }
         IAuthorRepository Author { get; }
+        IUserRepository User { get; }
     }
 }

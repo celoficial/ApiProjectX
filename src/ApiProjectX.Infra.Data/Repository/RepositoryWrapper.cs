@@ -8,6 +8,7 @@ namespace ApiProjectX.Infra.Data.Repository
         private readonly ProjectXContext _dbContext;
         private IAnimeRepository _anime;
         private IAuthorRepository _author;
+        private IUserRepository _user;
 
         public RepositoryWrapper(ProjectXContext dbContext)
         {
@@ -36,6 +37,18 @@ namespace ApiProjectX.Infra.Data.Repository
                     _author = new AuthorRepository(_dbContext);
                 }
                 return _author;
+            }
+        }
+
+        public IUserRepository User
+        {
+            get
+            {
+                if (_user == null)
+                {
+                    _user = new UserRepository(_dbContext);
+                }
+                return _user;
             }
         }
     }
