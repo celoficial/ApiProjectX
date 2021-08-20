@@ -11,6 +11,7 @@ namespace ApiProjectX.Infra.Data.Repository
         private IUserRepository _user;
         private ISeasonRepository _season;
         private IStudioRepository _studio;
+        private IEpisodeRepository _episode;
 
         public RepositoryWrapper(ProjectXContext dbContext)
         {
@@ -77,5 +78,19 @@ namespace ApiProjectX.Infra.Data.Repository
                 return _studio;
             }
         }
+
+        public IEpisodeRepository Episode
+         {
+            get
+            {
+                if (_episode == null)
+                {
+                    _episode = new EpisodeRepository(_dbContext);
+                }
+                return _episode;
+            }
+         }
     }
+
+        
 }

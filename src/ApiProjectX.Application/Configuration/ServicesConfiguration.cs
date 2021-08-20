@@ -13,6 +13,7 @@ namespace ApiProjectX.Application.Configuration
             services.AddTransient<IAuthorService, AuthorService>();
             services.AddTransient<ISeasonService, SeasonService>();
             services.AddTransient<IStudioService, StudioService>();
+            services.AddTransient<IEpisodeService, EpisodeService>();
         }
     }
 }
