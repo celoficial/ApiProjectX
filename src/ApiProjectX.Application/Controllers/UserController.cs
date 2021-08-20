@@ -34,6 +34,13 @@ namespace ApiProjectX.Application.Controllers
             return Ok(result);
         }
 
+        [HttpPut]
+        public async Task<ActionResult> Put(UserEntity userEntity)
+        {
+            Task result = await _userService.Update(userEntity);
+            return Ok(result);
+        }
+
         [HttpDelete]
         public async Task<ActionResult> Delete(UserEntity userEntity)
         {
