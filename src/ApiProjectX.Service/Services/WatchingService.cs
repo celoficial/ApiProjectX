@@ -4,10 +4,10 @@ using ApiProjectX.Domain.Interfaces.Services;
 
 namespace ApiProjectX.Service.Services
 {
-    public class UserService : BaseService<UserEntity>, IUserService
+    public class WatchingService : BaseService<WatchingEntity>, IWatchingService
     {
         private readonly IRepositoryWrapper _repository;
-        public UserService(IRepositoryWrapper repository, IBaseRepository<UserEntity> baseRepository) : base(baseRepository)
+        public WatchingService(IRepositoryWrapper repository, IBaseRepository<WatchingEntity> baseRepository) : base(baseRepository)
         {
             _repository = repository;
         }

@@ -12,6 +12,7 @@ namespace ApiProjectX.Infra.Data.Repository
         private ISeasonRepository _season;
         private IStudioRepository _studio;
         private IEpisodeRepository _episode;
+        private IWatchingRepository _watchingRepository;
 
         public RepositoryWrapper(ProjectXContext dbContext)
         {
@@ -90,6 +91,18 @@ namespace ApiProjectX.Infra.Data.Repository
                 return _episode;
             }
          }
+
+        public IWatchingRepository Watching
+        {
+            get
+            {
+                if (_watchingRepository == null)
+                {
+                    _watchingRepository = new WatchingRepository(_dbContext);
+                }
+                return _watchingRepository;
+            }
+        }
     }
 
         
