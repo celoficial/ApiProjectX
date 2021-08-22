@@ -2,7 +2,6 @@
 using ApiProjectX.Domain.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace ApiProjectX.Application.Controllers
@@ -21,7 +20,7 @@ namespace ApiProjectX.Application.Controllers
         [HttpGet]
         public async Task<ActionResult> Get()
         {
-            IEnumerable<AnimeEntity> result = await _animeservice.GetAll();
+            var result = await _animeservice.GetAllResponse();
             return Ok(result);
         }
 
