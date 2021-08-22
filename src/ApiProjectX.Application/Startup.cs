@@ -1,4 +1,5 @@
 using ApiProjectX.Application.Configuration;
+using ApiProjectX.Domain.AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;

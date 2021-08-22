@@ -1,7 +1,7 @@
 ﻿using ApiProjectX.Domain.Responses.Anime;
 using AutoMapper;
 
-namespace ApiProjectX.Application.Configuration
+namespace ApiProjectX.Domain.AutoMapper
 {
     public class AutoMapperConfiguration
     {

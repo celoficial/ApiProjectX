@@ -17,17 +17,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{C94D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{87BC0554-AA61-42D5-B51C-82C5216A8401}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiProjectX.Application", "ApiProjectX.Application\ApiProjectX.Application.csproj", "{917420E4-271E-4ED9-B842-546FD34C169F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiProjectX.Application", "ApiProjectX.Application\ApiProjectX.Application.csproj", "{917420E4-271E-4ED9-B842-546FD34C169F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiProjectX.Domain", "ApiProjectX.Domain\ApiProjectX.Domain.csproj", "{290833B2-18E8-4CC5-B19B-1C40CE82548A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiProjectX.Domain", "ApiProjectX.Domain\ApiProjectX.Domain.csproj", "{290833B2-18E8-4CC5-B19B-1C40CE82548A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiProjectX.Infra.CrossCutting", "ApiProjectX.Infra.CrossCutting\ApiProjectX.Infra.CrossCutting.csproj", "{54C9C76E-05C2-4D80-B411-F985C8DE8867}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiProjectX.Infra.CrossCutting", "ApiProjectX.Infra.CrossCutting\ApiProjectX.Infra.CrossCutting.csproj", "{54C9C76E-05C2-4D80-B411-F985C8DE8867}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiProjectX.Infra.Data", "ApiProjectX.Infra.Data\ApiProjectX.Infra.Data.csproj", "{5515FEA4-815C-47D5-9D66-669A0B40848F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiProjectX.Infra.Data", "ApiProjectX.Infra.Data\ApiProjectX.Infra.Data.csproj", "{5515FEA4-815C-47D5-9D66-669A0B40848F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiProjectX.Service", "ApiProjectX.Service\ApiProjectX.Service.csproj", "{467B4E84-170A-4FE1-9EE1-30901A64B695}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiProjectX.Service", "ApiProjectX.Service\ApiProjectX.Service.csproj", "{467B4E84-170A-4FE1-9EE1-30901A64B695}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiProjectX.Tests", "ApiProjectX.Tests\ApiProjectX.Tests.csproj", "{8FBCF454-911A-483A-940A-7024E1057E84}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiProjectX.Tests", "ApiProjectX.Tests\ApiProjectX.Tests.csproj", "{8FBCF454-911A-483A-940A-7024E1057E84}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
