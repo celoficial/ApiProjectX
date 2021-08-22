@@ -7,5 +7,6 @@
         IUserRepository User { get; }
         IStudioRepository Studio { get; }
         IEpisodeRepository Episode { get; }
+        ICategoryRepository Category { get; }
     }
 }
