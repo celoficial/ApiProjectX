@@ -12,6 +12,7 @@ namespace ApiProjectX.Infra.Data.Repository
         private ISeasonRepository _season;
         private IStudioRepository _studio;
         private IEpisodeRepository _episode;
+        private ICategoryRepository _category;
 
         public RepositoryWrapper(ProjectXContext dbContext)
         {
@@ -90,6 +91,18 @@ namespace ApiProjectX.Infra.Data.Repository
                 return _episode;
             }
          }
+
+        public ICategoryRepository Category
+        {
+            get
+            {
+                if (_category == null)
+                {
+                    _category = new CategoryRepository(_dbContext);
+                }
+                return _category;
+            }
+        }
     }
 
         

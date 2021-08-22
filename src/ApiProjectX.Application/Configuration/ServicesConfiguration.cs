@@ -14,6 +14,7 @@ namespace ApiProjectX.Application.Configuration
             services.AddTransient<ISeasonService, SeasonService>();
             services.AddTransient<IStudioService, StudioService>();
             services.AddTransient<IEpisodeService, EpisodeService>();
+            services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<IWatchLaterService, WatchLaterService>();
         }
     }
