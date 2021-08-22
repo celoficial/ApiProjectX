@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ApiProjectX.Domain.Responses
+namespace ApiProjectX.Domain.Responses.Anime
 {
     public class AnimeAllResponse
     {

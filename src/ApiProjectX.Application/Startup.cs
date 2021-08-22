@@ -24,6 +24,7 @@ namespace ApiProjectX.Application
             services.AddControllers();
             services.ConfigureWrapper(Configuration);
             services.ConfigureServices(Configuration);
+            services.AddAutoMapper(typeof(AutoMapperConfiguration));
             services.ConfigureDataBase(Configuration, Environment);
             services.AddHttpContextAccessor();
             services.AddMvc();

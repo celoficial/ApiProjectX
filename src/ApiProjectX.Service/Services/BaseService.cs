@@ -1,6 +1,7 @@
 ﻿using ApiProjectX.Domain.Interfaces.Repository;
 using ApiProjectX.Domain.Interfaces.Services;
 using ApiProjectX.Service.Exceptions;
+using AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -10,9 +11,12 @@ namespace ApiProjectX.Service.Services
     public abstract class BaseService<T> : IBaseService<T>
     {
         private readonly IBaseRepository<T> _baseRepository;
-        public BaseService(IBaseRepository<T> baseRepository)
+        protected readonly IMapper _mapper;
+
+        public BaseService(IBaseRepository<T> baseRepository, IMapper mapper)
         {
             _baseRepository = baseRepository;
+            _mapper = mapper;
         }
 
         public async Task<T> Create(T entity)
