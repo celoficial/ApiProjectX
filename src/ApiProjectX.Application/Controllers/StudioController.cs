@@ -1,8 +1,8 @@
-﻿using ApiProjectX.Domain.Entities;
-using ApiProjectX.Domain.Interfaces.Services;
+﻿using ApiProjectX.Domain.Interfaces.Services;
+using ApiProjectX.Domain.Requests;
+using ApiProjectX.Domain.Responses;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace ApiProjectX.Application.Controllers
@@ -21,38 +21,38 @@ namespace ApiProjectX.Application.Controllers
         [HttpGet]
         public async Task<ActionResult> Get()
         {
-            IEnumerable<StudioEntity> result = await _studioservice.GetAll();
+           GenericResult result = await _studioservice.GetAll();
             return Ok(result);
         }
 
         [HttpGet("id")]
         public async Task<ActionResult> Get(Guid Id)
         {
-            StudioEntity result = await _studioservice.FindById(Id);
+            GenericResult result = await _studioservice.FindById(Id);
             return Ok(result);
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post(StudioEntity studioEntity)
+        public async Task<ActionResult> Post(StudioRequest studioEntity)
         {
-            StudioEntity result = await _studioservice.Create(studioEntity);
+            GenericResult result = await _studioservice.Create(studioEntity);
             return Ok(result);
 
         }
 
         [HttpPut]
-        public async Task<ActionResult> Put(StudioEntity studioEntity)
+        public async Task<ActionResult> Put(StudioRequest studioEntity)
         {
-            Task result = await _studioservice.Update(studioEntity);
+            GenericResult result = await _studioservice.Update(studioEntity);
             return Ok(result);
         }
 
         [HttpDelete]
-        public async Task<ActionResult> Delete(StudioEntity studioEntity)
+        public async Task<ActionResult> Delete(StudioRequest studioEntity)
         {
             if (!String.IsNullOrEmpty(studioEntity.Id.ToString()))
             {
-                Task result = await _studioservice.Delete(studioEntity.Id);
+                GenericResult result = await _studioservice.Delete(studioEntity.Id);
                 return Ok(result);
             }
             else
