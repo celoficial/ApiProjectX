@@ -4,11 +4,10 @@ using ApiProjectX.Infra.Data.Context;
 
 namespace ApiProjectX.Infra.Data.Repository
 {
-    public class WatchLaterRepository : BaseRepository<WatchLaterEntity>, IWatchLaterRepository
+    public class WatchRepository : BaseRepository<WatchEntity>, IWatchRepository
     {
-        public WatchLaterRepository(ProjectXContext dbContext) : base(dbContext)
+        public WatchRepository(ProjectXContext dbContext) : base(dbContext)
         {
-
-        } 
+        }
     }
 }
