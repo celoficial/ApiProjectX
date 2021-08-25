@@ -13,7 +13,7 @@ namespace ApiProjectX.Infra.Data.Repository
         private IStudioRepository _studio;
         private IEpisodeRepository _episode;
         private IWatchLaterRepository _watchLaterRepository;
-        private IWatchingRepository _watchingRepository;
+        private IWatchRepository _watchingRepository;
         private ICategoryRepository _category;
 
         public RepositoryWrapper(ProjectXContext dbContext)
@@ -94,13 +94,13 @@ namespace ApiProjectX.Infra.Data.Repository
             }
          }
 
-        public IWatchingRepository Watching
+        public IWatchRepository Watching
         {
             get
             {
                 if (_watchingRepository == null)
                 {
-                    _watchingRepository = new WatchingRepository(_dbContext);
+                    _watchingRepository = new WatchRepository(_dbContext);
                 }
                 return _watchingRepository;
             }

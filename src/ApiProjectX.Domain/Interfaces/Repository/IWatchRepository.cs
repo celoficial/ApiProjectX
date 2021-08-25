@@ -2,7 +2,7 @@
 
 namespace ApiProjectX.Domain.Interfaces.Repository
 {
-    public interface IWatchLaterRepository : IBaseRepository<WatchLaterEntity>
+    public interface IWatchRepository : IBaseRepository<WatchEntity>
     {
     }
 }
