@@ -1,8 +1,9 @@
 ﻿using ApiProjectX.Domain.Entities;
 using ApiProjectX.Domain.Interfaces.Services;
+using ApiProjectX.Domain.Requests.Episode;
+using ApiProjectX.Domain.Responses;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 namespace ApiProjectX.Application.Controllers
 {
@@ -20,37 +21,37 @@ namespace ApiProjectX.Application.Controllers
         [HttpGet]
         public async Task<ActionResult> Get()
         {
-            IEnumerable<EpisodeEntity> result = await _episodeservice.GetAll();
+            GenericResult result = await _episodeservice.GetAll();
             return Ok(result);
         }
 
         [HttpGet("id")]
         public async Task<ActionResult> Get(Guid Id)
         {
-            EpisodeEntity result = await _episodeservice.FindById(Id);
+            GenericResult result = await _episodeservice.FindById(Id);
             return Ok(result);
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post(EpisodeEntity episodeEntity)
+        public async Task<ActionResult> Post(EpisodeRequest episodeEntity)
         {
-            EpisodeEntity result = await _episodeservice.Create(episodeEntity);
+            GenericResult result = await _episodeservice.Create(episodeEntity);
             return Ok(result);
         }
 
         [HttpPut]
-        public async Task<ActionResult> Put(EpisodeEntity episodeEntity)
+        public async Task<ActionResult> Put(EpisodeRequest episodeEntity)
         {
-            Task result = await _episodeservice.Update(episodeEntity);
+            GenericResult result = await _episodeservice.Update(episodeEntity);
             return Ok(result);
         }
 
         [HttpDelete]
-        public async Task<ActionResult> Delete(EpisodeEntity episodeEntity)
+        public async Task<ActionResult> Delete(EpisodeRequest episodeEntity)
         {
             if (!String.IsNullOrEmpty(episodeEntity.Id.ToString()))
             {
-                Task result = await _episodeservice.Delete(episodeEntity.Id);
+                GenericResult result = await _episodeservice.Delete(episodeEntity.Id);
                 return Ok(result);
             }
             else
