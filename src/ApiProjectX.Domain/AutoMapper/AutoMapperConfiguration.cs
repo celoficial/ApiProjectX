@@ -1,10 +1,12 @@
 ﻿using ApiProjectX.Domain.Requests.Anime;
 using ApiProjectX.Domain.Requests.Author;
+using ApiProjectX.Domain.Requests.Season;
 using ApiProjectX.Domain.Requests.Studio;
 using ApiProjectX.Domain.Requests.User;
 using ApiProjectX.Domain.Requests.Watch;
 using ApiProjectX.Domain.Responses.Anime;
 using ApiProjectX.Domain.Responses.Author;
+using ApiProjectX.Domain.Responses.Season;
 using ApiProjectX.Domain.Responses.Studio;
 using ApiProjectX.Domain.Responses.User;
 using ApiProjectX.Domain.Responses.Watch;
@@ -28,6 +30,8 @@ namespace ApiProjectX.Domain.AutoMapper
                 cfg.AddProfile<AuthorRequestProfile>();
                 cfg.AddProfile<StudioResponseProfile>();
                 cfg.AddProfile<StudioRequestProfile>();
+                cfg.AddProfile<SeasonRequestProfile>();
+                cfg.AddProfile<SeasonResponseProfile>();
             });
         }
     }

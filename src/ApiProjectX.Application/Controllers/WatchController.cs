@@ -22,7 +22,7 @@ namespace ApiProjectX.Application.Controllers
         [HttpGet]
         public async Task<ActionResult> Get()
         {
-            var result = await _watchService.GetAll();
+            GenericResult result = await _watchService.GetAll();
             return Ok(result);
         }
 
