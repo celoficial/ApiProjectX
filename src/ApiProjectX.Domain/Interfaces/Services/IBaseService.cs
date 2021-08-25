@@ -1,19 +1,20 @@
-﻿using System;
+﻿using ApiProjectX.Domain.Responses;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace ApiProjectX.Domain.Interfaces.Services
 {
-    public interface IBaseService<T>
+    public interface IBaseService<T1, T2, T3>
     {
-        Task<T> Create(T entity);
-        Task CreateMany(IEnumerable<T> entities);
-        Task<Task> Delete(Guid id);
-        Task DeleteMany(IEnumerable<T> entities);
-        Task<bool> Exists(Guid id);
-        Task<T> FindById(Guid id);
-        Task<IEnumerable<T>> GetAll();
+        Task<GenericResult> Create(T2 entity);
+        Task<GenericResult> CreateMany(IEnumerable<T2> entities);
+        Task<GenericResult> Delete(Guid id);
+        Task DeleteMany(IEnumerable<T1> entities);
+        Task<GenericResult> Exists(Guid id);
+        Task<GenericResult> FindById(Guid id);
+        Task<GenericResult> GetAll();
         Task<Task> Save();
-        Task<Task> Update(T entity);
+        Task<GenericResult> Update(T2 entity);
     }
 }
