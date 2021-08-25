@@ -1,7 +1,9 @@
 ﻿using ApiProjectX.Domain.Requests.Anime;
+using ApiProjectX.Domain.Requests.Author;
 using ApiProjectX.Domain.Requests.User;
 using ApiProjectX.Domain.Requests.WatchLater;
 using ApiProjectX.Domain.Responses.Anime;
+using ApiProjectX.Domain.Responses.Author;
 using ApiProjectX.Domain.Responses.User;
 using ApiProjectX.Domain.Responses.WatchLater;
 using AutoMapper;
@@ -20,6 +22,8 @@ namespace ApiProjectX.Domain.AutoMapper
                 cfg.AddProfile<UserRequestProfile>();
                 cfg.AddProfile<WatchLaterRequestProfile>();
                 cfg.AddProfile<WatchLaterResponseProfile>();
+                cfg.AddProfile<AuthorResponseProfile>();
+                cfg.AddProfile<AuthorRequestProfile>();
             });
         }
     }
