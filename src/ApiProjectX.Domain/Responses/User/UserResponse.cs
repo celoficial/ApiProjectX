@@ -1,9 +1,11 @@
-﻿using System;
+﻿using ApiProjectX.Domain.Entities;
+using System;
 
-namespace ApiProjectX.Domain.Entities
+namespace ApiProjectX.Domain.Responses.User
 {
-    public class UserEntity : BaseEntity
+    public class UserResponse
     {
+        public Guid Id { get; set; }
         public string UserName { get; set; }
         public string UserNick { get; set; }
         public string UserEmail { get; set; }

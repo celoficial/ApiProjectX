@@ -1,5 +1,7 @@
 ﻿using ApiProjectX.Domain.Requests.Anime;
+using ApiProjectX.Domain.Requests.User;
 using ApiProjectX.Domain.Responses.Anime;
+using ApiProjectX.Domain.Responses.User;
 using AutoMapper;
 
 namespace ApiProjectX.Domain.AutoMapper
@@ -12,6 +14,8 @@ namespace ApiProjectX.Domain.AutoMapper
             {
                 cfg.AddProfile<AnimeResponseProfile>();
                 cfg.AddProfile<AnimeRequestProfile>();
+                cfg.AddProfile<UserResponseProfile>();
+                cfg.AddProfile<UserRequestProfile>();
             });
         }
     }

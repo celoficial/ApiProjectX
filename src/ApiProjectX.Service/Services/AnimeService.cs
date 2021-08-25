@@ -25,9 +25,6 @@ namespace ApiProjectX.Service.Services
             var entities2 = _mapper.Map<IEnumerable<AnimeEntity>, IEnumerable<AnimeAllResponse>>(entities);
 
             return new GenericResult("deu certo", true, entities2);
-
-
-
         }
     }
 }

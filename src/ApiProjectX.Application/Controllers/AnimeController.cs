@@ -1,5 +1,7 @@
 ﻿using ApiProjectX.Domain.Entities;
 using ApiProjectX.Domain.Interfaces.Services;
+using ApiProjectX.Domain.Requests;
+using ApiProjectX.Domain.Responses;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
@@ -27,30 +29,30 @@ namespace ApiProjectX.Application.Controllers
         [HttpGet("id")]
         public async Task<ActionResult> Get(Guid Id)
         {
-            AnimeEntity result = await _animeservice.FindById(Id);
+            GenericResult result = await _animeservice.FindById(Id);
             return Ok(result);
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post(AnimeEntity animeEntity)
+        public async Task<ActionResult> Post(AnimeRequest animeEntity)
         {
-            AnimeEntity result = await _animeservice.Create(animeEntity);
+            GenericResult result = await _animeservice.Create(animeEntity);
             return Ok(result);
         }
 
         [HttpPut]
-        public async Task<ActionResult> Put(AnimeEntity animeEntity)
+        public async Task<ActionResult> Put(AnimeRequest animeEntity)
         {
-            Task result = await _animeservice.Update(animeEntity);
+            GenericResult result = await _animeservice.Update(animeEntity);
             return Ok(result);
         }
 
         [HttpDelete]
-        public async Task<ActionResult> Delete(AnimeEntity animeEntity)
+        public async Task<ActionResult> Delete(AnimeRequest animeEntity)
         {
             if (!String.IsNullOrEmpty(animeEntity.Id.ToString()))
             {
-                Task result = await _animeservice.Delete(animeEntity.Id);
+                GenericResult result = await _animeservice.Delete(animeEntity.Id);
                 return Ok(result);
             }
             else
