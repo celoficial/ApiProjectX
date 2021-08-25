@@ -24,7 +24,7 @@ namespace ApiProjectX.Application.Controllers
         [HttpGet]
         public async Task<ActionResult> Get()
         {
-            var result = await _authorService.GetAll();
+            GenericResult result = await _authorService.GetAll();
             return Ok(result);
         }
 
