@@ -8,5 +8,7 @@
         IStudioRepository Studio { get; }
         IEpisodeRepository Episode { get; }
         ICategoryRepository Category { get; }
+        IWatchingRepository Watching { get; }
+        IWatchLaterRepository WatchLater { get; }
     }
 }
