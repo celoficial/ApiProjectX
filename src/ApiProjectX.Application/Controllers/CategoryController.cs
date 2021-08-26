@@ -1,8 +1,8 @@
-﻿using ApiProjectX.Domain.Entities;
-using ApiProjectX.Domain.Interfaces.Services;
+﻿using ApiProjectX.Domain.Interfaces.Services;
+using ApiProjectX.Domain.Requests.Category;
+using ApiProjectX.Domain.Responses;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace ApiProjectX.Application.Controllers
@@ -22,37 +22,37 @@ namespace ApiProjectX.Application.Controllers
         [HttpGet]
         public async Task<ActionResult> Get()
         {
-            IEnumerable<CategoryEntity> result = await _categoryService.GetAll();
+            GenericResult result = await _categoryService.GetAll();
             return Ok(result);
         }
 
         [HttpGet("id")]
         public async Task<ActionResult> Get(Guid Id)
         {
-            CategoryEntity result = await _categoryService.FindById(Id);
+            GenericResult result = await _categoryService.FindById(Id);
             return Ok(result);
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post(CategoryEntity categoryEntity)
+        public async Task<ActionResult> Post(CategoryRequest categoryEntity)
         {
-            CategoryEntity result = await _categoryService.Create(categoryEntity);
+            GenericResult result = await _categoryService.Create(categoryEntity);
             return Ok(result);
         }
 
         [HttpPut]
-        public async Task<ActionResult> Put(CategoryEntity categoryEntity)
+        public async Task<ActionResult> Put(CategoryRequest categoryEntity)
         {
-            Task result = await _categoryService.Update(categoryEntity);
+            GenericResult result = await _categoryService.Update(categoryEntity);
             return Ok(result);
         }
 
         [HttpDelete]
-        public async Task<ActionResult> Delete(CategoryEntity categoryEntity)
+        public async Task<ActionResult> Delete(CategoryRequest categoryEntity)
         {
             if (!String.IsNullOrEmpty(categoryEntity.Id.ToString()))
             {
-                Task result = await _categoryService.Delete(categoryEntity.Id);
+                GenericResult result = await _categoryService.Delete(categoryEntity.Id);
                 return Ok(result);
             }
             else
