@@ -12,8 +12,7 @@ namespace ApiProjectX.Infra.Data.Repository
         private ISeasonRepository _season;
         private IStudioRepository _studio;
         private IEpisodeRepository _episode;
-        private IWatchLaterRepository _watchLaterRepository;
-        private IWatchRepository _watchingRepository;
+        private IWatchRepository _watchRepository;
         private ICategoryRepository _category;
 
         public RepositoryWrapper(ProjectXContext dbContext)
@@ -94,27 +93,15 @@ namespace ApiProjectX.Infra.Data.Repository
             }
          }
 
-        public IWatchRepository Watching
+        public IWatchRepository Watch
         {
             get
             {
-                if (_watchingRepository == null)
+                if (_watchRepository == null)
                 {
-                    _watchingRepository = new WatchRepository(_dbContext);
+                    _watchRepository = new WatchRepository(_dbContext);
                 }
-                return _watchingRepository;
-            }
-        }
-
-        public IWatchLaterRepository WatchLater
-        {
-            get
-            {
-                if (_watchLaterRepository == null)
-                {
-                    _watchLaterRepository = new WatchLaterRepository(_dbContext);
-                }
-                return _watchLaterRepository;
+                return _watchRepository;
             }
         }
 

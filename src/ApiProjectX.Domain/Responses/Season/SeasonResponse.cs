@@ -1,4 +1,5 @@
 ﻿using ApiProjectX.Domain.Responses.Anime;
+using ApiProjectX.Domain.Responses.Episode;
 using System;
 using System.Collections.Generic;
 

@@ -30,7 +30,7 @@ namespace ApiProjectX.Service.Services
                 result.Message = "deu bom dimais";
                 return result;
             }
-            catch (GeneralException e)
+            catch (GeneralException)
             {
                 result.Message = "deu ruim F";
                 result.Success = false;
@@ -49,7 +49,7 @@ namespace ApiProjectX.Service.Services
                 return result;
 
             }
-            catch (GeneralException e)
+            catch (GeneralException)
             {
                 result.Message = "nao criou";
                 result.Success = false;
@@ -69,7 +69,7 @@ namespace ApiProjectX.Service.Services
                 result.Data = c;
                 return result;
             }
-            catch (GeneralException e)
+            catch (GeneralException)
             {
                 result.Message = "nao deletou";
                 result.Success = false;
@@ -93,7 +93,7 @@ namespace ApiProjectX.Service.Services
                 return result;
 
             }
-            catch (GeneralException e)
+            catch (GeneralException)
             {
                 result.Message = "nao achou";
                 result.Success = false;
@@ -118,7 +118,7 @@ namespace ApiProjectX.Service.Services
 
 
             }
-            catch (GeneralException e)
+            catch (GeneralException)
             {
                 result.Message = "nao achou id";
                 result.Success = false;
@@ -138,7 +138,7 @@ namespace ApiProjectX.Service.Services
                 return result;
 
             }
-            catch (GeneralException e)
+            catch (GeneralException)
             {
                 result.Message = "nao deu get";
                 result.Success = false;
@@ -170,7 +170,7 @@ namespace ApiProjectX.Service.Services
                 result.Message = "atualizou";
                 return result;
             }
-            catch (GeneralException e)
+            catch (GeneralException)
             {
                 result.Message = "nao atualizou";
                 result.Success = false;
