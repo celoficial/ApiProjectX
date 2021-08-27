@@ -8,6 +8,7 @@ namespace ApiProjectX.Domain.Responses.Category
         public CategoryResponseProfile()
         {
             CreateMap<CategoryEntity, CategoryAllReponse>();
+            //implementar dps
             CreateMap<CategoryEntity, CategoryResponse>();
         }
     }

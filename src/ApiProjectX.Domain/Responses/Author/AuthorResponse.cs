@@ -8,6 +8,6 @@ namespace ApiProjectX.Domain.Responses.Author
     {
         public Guid Id { get; set; }
         public string AuthorName { get; set; }
-        public ICollection<AnimeAuthorEntity> AnimeAuthor { get; set; }
+       // public ICollection<AnimeAuthorEntity> AnimeAuthor { get; set; }
     }
 }

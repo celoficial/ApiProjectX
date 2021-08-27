@@ -1,5 +1,6 @@
 ﻿using ApiProjectX.Domain.Entities;
 using AutoMapper;
+using System.Linq;
 
 namespace ApiProjectX.Domain.Responses.Anime
 {
@@ -8,8 +9,8 @@ namespace ApiProjectX.Domain.Responses.Anime
         public AnimeResponseProfile()
         {
             CreateMap<AnimeEntity, AnimeAllResponse>()
-                .ForSourceMember(a => a.AnimeAuthor, opt => opt.DoNotValidate())
-                .ForSourceMember(a => a.AnimeCategory, opt => opt.DoNotValidate());
+                .ForMember(c => c.Categories, d => d.MapFrom(e => e.AnimeCategory.Select(f => f.Category)))
+                .ForMember(c => c.Authors, d => d.MapFrom(e => e.AnimeAuthor.Select(f => f.Author)));
             CreateMap<AnimeEntity, AnimeResponse>();
 
         }

@@ -11,6 +11,8 @@ namespace ApiProjectX.Infra.Data.EntityConfiguration
             builder.HasKey(c => c.Id);
             builder.Property(c => c.AnimeId).IsRequired(false);
             builder.Property(c => c.CategoryId).IsRequired(false);
+            builder.HasOne(c => c.Anime).WithMany(c => c.AnimeCategory).HasForeignKey(c => c.AnimeId);
+            builder.HasOne(c => c.Category).WithMany(c => c.AnimeCategories).HasForeignKey(c => c.CategoryId);
         }
     }
 }

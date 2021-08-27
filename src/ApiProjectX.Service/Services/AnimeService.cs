@@ -4,6 +4,7 @@ using ApiProjectX.Domain.Interfaces.Services;
 using ApiProjectX.Domain.Requests;
 using ApiProjectX.Domain.Responses;
 using ApiProjectX.Domain.Responses.Anime;
+using ApiProjectX.Domain.Responses.Category;
 using AutoMapper;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -20,10 +21,25 @@ namespace ApiProjectX.Service.Services
 
         public async Task<GenericResult> GetAllResponse()
         {
-            var entities = await _repository.Anime.FindAll();
+            var entities = await _repository.Anime.testAnime();
+           // var entities = await _repository.Anime.FindAll(new List<string> {"AnimeCategory" , "Category"});
 
             var entities2 = _mapper.Map<IEnumerable<AnimeEntity>, IEnumerable<AnimeAllResponse>>(entities);
-
+            #region Fazendo mapper na mão
+            //List < CategoryEntity > categoryList = new List<CategoryEntity>();
+            //foreach (var item in entities)
+            //{
+            //    foreach (var item2 in item.AnimeCategory)
+            //    {
+            //        categoryList.Add(item2.Category);
+            //    }
+            //}
+            //var x = _mapper.Map<IEnumerable<CategoryEntity>, IEnumerable<CategoryResponse>>(categoryList);
+            //foreach (var item in entities2)
+            //{
+            //    item.Categories = x;
+            //}
+            #endregion
             return new GenericResult("deu certo", true, entities2);
 
         }

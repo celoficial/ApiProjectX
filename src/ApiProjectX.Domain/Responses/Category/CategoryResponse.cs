@@ -8,6 +8,6 @@ namespace ApiProjectX.Domain.Responses.Category
     {
         public Guid Id { get; set; }
         public string CategoryName { get; set; }
-        public ICollection<AnimeCategoryEntity> AnimeCategories { get; set; }
+      //  public ICollection<AnimeCategoryEntity> AnimeCategories { get; set; }
     }
 }
