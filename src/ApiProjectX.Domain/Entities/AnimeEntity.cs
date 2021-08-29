@@ -12,6 +12,7 @@ namespace ApiProjectX.Domain.Entities
 
         public ICollection<AnimeCategoryEntity> AnimeCategory { get; set; }
         public ICollection<AnimeAuthorEntity> AnimeAuthor { get; set; }
+        public ICollection<StudioAnimeEntity> AnimeStudio { get; set; }
 
     }
 }

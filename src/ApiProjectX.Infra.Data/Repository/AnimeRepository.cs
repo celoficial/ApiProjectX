@@ -11,7 +11,7 @@ namespace ApiProjectX.Infra.Data.Repository
     {
         public AnimeRepository(ProjectXContext dbContext) : base(dbContext)
         {
-            
+
         }
 
         public async Task<List<AnimeEntity>> testAnime()
@@ -21,6 +21,8 @@ namespace ApiProjectX.Infra.Data.Repository
                 .ThenInclude(c => c.Category)
                 .Include(c => c.AnimeAuthor)
                 .ThenInclude(c => c.Author)
+                .Include(c => c.AnimeStudio)
+                .ThenInclude(c => c.Studio)
                 .ToListAsync();
         }
     }

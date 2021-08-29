@@ -22,6 +22,7 @@ namespace ApiProjectX.Infra.Data.Context
         public DbSet<WatchEntity> Watch { get; set; }
         public DbSet<AcessTypeEntity> AcessType { get; set; }
         public DbSet<UserEntity> User { get; set; }
+        public DbSet<StudioAnimeEntity> AnimeStudio { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
