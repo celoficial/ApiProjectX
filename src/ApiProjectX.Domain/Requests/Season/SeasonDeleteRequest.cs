@@ -2,8 +2,8 @@
 
 namespace ApiProjectX.Domain.Requests.Season
 {
-    public class SeasonRequest
+    public class SeasonDeleteRequest
     {
-        public Guid? AnimeId { get; set; }
+        public Guid Id { get; set; }
     }
 }

@@ -27,6 +27,7 @@ namespace ApiProjectX.Service.Services
             {
                 var c = _mapper.Map<T2, T1>(entity);
                 await _baseRepository.Create(c);
+                await _baseRepository.Save();
                 result.Message = "deu bom dimais";
                 return result;
             }

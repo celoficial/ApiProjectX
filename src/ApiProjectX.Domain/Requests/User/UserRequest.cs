@@ -1,11 +1,9 @@
 ﻿using ApiProjectX.Domain.Entities;
-using System;
 
-namespace ApiProjectX.Domain.Requests
+namespace ApiProjectX.Domain.Requests.User
 {
     public class UserRequest
     {
-        public Guid Id { get; set; }
         public string UserName { get; set; }
         public string UserNick { get; set; }
         public string UserEmail { get; set; }

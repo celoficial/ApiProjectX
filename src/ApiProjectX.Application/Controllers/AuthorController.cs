@@ -1,10 +1,7 @@
-﻿using ApiProjectX.Domain.Entities;
-using ApiProjectX.Domain.Interfaces.Services;
-using ApiProjectX.Domain.Requests;
+﻿using ApiProjectX.Domain.Interfaces.Services;
 using ApiProjectX.Domain.Responses;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace ApiProjectX.Application.Controllers
@@ -50,9 +47,9 @@ namespace ApiProjectX.Application.Controllers
         }
 
         [HttpDelete]
-        public async Task<ActionResult> Delete(AuthorRequest authorEntity)
+        public async Task<ActionResult> Delete(AuthorDeleteRequest authorEntity)
         {
-            if (!String.IsNullOrEmpty(authorEntity.Id.ToString())) 
+            if (!String.IsNullOrEmpty(authorEntity.Id.ToString()))
             {
                 GenericResult result = await _authorService.Delete(authorEntity.Id);
                 return Ok(result);

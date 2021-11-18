@@ -13,7 +13,7 @@ namespace ApiProjectX.Application.Controllers
     public class CategoryController : ControllerBase
     {
         private readonly ICategoryService _categoryService;
-        
+
         public CategoryController(ICategoryService categoryService)
         {
             _categoryService = categoryService;
@@ -48,7 +48,7 @@ namespace ApiProjectX.Application.Controllers
         }
 
         [HttpDelete]
-        public async Task<ActionResult> Delete(CategoryRequest categoryEntity)
+        public async Task<ActionResult> Delete(CategoryDeleteRequest categoryEntity)
         {
             if (!String.IsNullOrEmpty(categoryEntity.Id.ToString()))
             {

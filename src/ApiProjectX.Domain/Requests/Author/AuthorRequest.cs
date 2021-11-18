@@ -1,12 +1,10 @@
 ﻿using ApiProjectX.Domain.Entities;
-using System;
 using System.Collections.Generic;
 
-namespace ApiProjectX.Domain.Requests
+namespace ApiProjectX.Domain.Requests.Author
 {
    public class AuthorRequest
     {
-        public Guid Id { get; set; }
         public string AuthorName { get; set; }
         public ICollection<AnimeAuthorEntity> AnimeAuthor { get; set; }
     }

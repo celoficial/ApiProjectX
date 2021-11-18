@@ -1,10 +1,7 @@
-﻿using System;
-
-namespace ApiProjectX.Domain.Requests
+﻿namespace ApiProjectX.Domain.Requests.Studio
 {
    public class StudioRequest
     {
-        public Guid Id { get; set; }
         public string StudioName { get; set; }
     }
 }

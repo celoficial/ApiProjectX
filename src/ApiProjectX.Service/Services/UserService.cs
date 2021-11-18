@@ -1,7 +1,7 @@
 ﻿using ApiProjectX.Domain.Entities;
 using ApiProjectX.Domain.Interfaces.Repository;
 using ApiProjectX.Domain.Interfaces.Services;
-using ApiProjectX.Domain.Requests;
+using ApiProjectX.Domain.Requests.User;
 using ApiProjectX.Domain.Responses;
 using ApiProjectX.Domain.Responses.User;
 using AutoMapper;

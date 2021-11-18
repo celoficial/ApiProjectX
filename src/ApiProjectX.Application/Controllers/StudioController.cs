@@ -1,5 +1,5 @@
 ﻿using ApiProjectX.Domain.Interfaces.Services;
-using ApiProjectX.Domain.Requests;
+using ApiProjectX.Domain.Requests.Studio;
 using ApiProjectX.Domain.Responses;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -48,7 +48,7 @@ namespace ApiProjectX.Application.Controllers
         }
 
         [HttpDelete]
-        public async Task<ActionResult> Delete(StudioRequest studioEntity)
+        public async Task<ActionResult> Delete(StudioDeleteRequest studioEntity)
         {
             if (!String.IsNullOrEmpty(studioEntity.Id.ToString()))
             {

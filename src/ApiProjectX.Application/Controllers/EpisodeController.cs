@@ -1,5 +1,4 @@
-﻿using ApiProjectX.Domain.Entities;
-using ApiProjectX.Domain.Interfaces.Services;
+﻿using ApiProjectX.Domain.Interfaces.Services;
 using ApiProjectX.Domain.Requests.Episode;
 using ApiProjectX.Domain.Responses;
 using Microsoft.AspNetCore.Mvc;
@@ -47,7 +46,7 @@ namespace ApiProjectX.Application.Controllers
         }
 
         [HttpDelete]
-        public async Task<ActionResult> Delete(EpisodeRequest episodeEntity)
+        public async Task<ActionResult> Delete(EpisodeDeleteRequest episodeEntity)
         {
             if (!String.IsNullOrEmpty(episodeEntity.Id.ToString()))
             {

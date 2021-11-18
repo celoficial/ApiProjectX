@@ -1,5 +1,5 @@
 ﻿using ApiProjectX.Domain.Entities;
-using ApiProjectX.Domain.Requests;
+using ApiProjectX.Domain.Requests.User;
 using ApiProjectX.Domain.Responses.User;
 
 namespace ApiProjectX.Domain.Interfaces.Services

@@ -1,5 +1,5 @@
 ﻿using ApiProjectX.Domain.Interfaces.Services;
-using ApiProjectX.Domain.Requests;
+using ApiProjectX.Domain.Requests.User;
 using ApiProjectX.Domain.Responses;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -47,7 +47,7 @@ namespace ApiProjectX.Application.Controllers
         }
 
         [HttpDelete]
-        public async Task<ActionResult> Delete(UserRequest userEntity)
+        public async Task<ActionResult> Delete(UserDeleteRequest userEntity)
         {
             if (!String.IsNullOrEmpty(userEntity.Id.ToString()))
             {

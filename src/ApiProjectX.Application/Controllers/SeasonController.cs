@@ -47,7 +47,7 @@ namespace ApiProjectX.Application.Controllers
         }
 
         [HttpDelete]
-        public async Task<ActionResult> Delete(SeasonRequest seasonEntity)
+        public async Task<ActionResult> Delete(SeasonDeleteRequest seasonEntity)
         {
             if (!String.IsNullOrEmpty(seasonEntity.Id.ToString()))
             {

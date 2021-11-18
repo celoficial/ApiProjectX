@@ -1,6 +1,4 @@
-﻿using ApiProjectX.Domain.Entities;
-using ApiProjectX.Domain.Interfaces.Services;
-using ApiProjectX.Domain.Requests;
+﻿using ApiProjectX.Domain.Interfaces.Services;
 using ApiProjectX.Domain.Responses;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -48,7 +46,7 @@ namespace ApiProjectX.Application.Controllers
         }
 
         [HttpDelete]
-        public async Task<ActionResult> Delete(AnimeRequest animeEntity)
+        public async Task<ActionResult> Delete(AnimeDeleteRequest animeEntity)
         {
             if (!String.IsNullOrEmpty(animeEntity.Id.ToString()))
             {
